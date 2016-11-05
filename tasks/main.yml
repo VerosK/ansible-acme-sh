@@ -1,0 +1,49 @@
+---
+# heavily inspired by https://gist.github.com/lachesis/943769f3fac740d5848352752ac08741
+- name: Create ACME.sh user
+  user:
+      name: '{{ acme_user }}'
+      home: '{{ acme_data_dir }}'
+      state: present
+
+- name: "Tighten permissions on ACME datadir"
+  file:
+    path: '{{ acme_data_dir }}'
+    mode: '700'
+
+- name: "Create ACME pki dir"
+  file:
+    dest: '{{ acme_pki_dir }}'
+    owner: '{{ acme_pki_dir_owner }}'
+    group: '{{ acme_pki_dir_group }}'
+    mode: '{{ acme_pki_dir_permissions }}'
+    state: directory
+
+- name: "Create ACME well-known dir"
+  file:
+    dest: '{{ acme_well_known_dir }}'
+    owner: '{{ acme_well_known_dir_owner }}'
+    group: '{{ acme_well_known_dir_group }}'
+    mode: '{{ acme_well_known_dir_permissions }}'
+    state: directory
+
+- name: "Download acme.sh from the wild GitHub"
+  get_url:
+    url: "{{ acme_script_url }}"
+    dest: '{{ acme_script }}'
+    mode: '0755'
+
+- name: "Make acme.sh accessible in {{ acme_symlink_to_local }}"
+  file:
+    src: "{{ acme_script }}"
+    dest: "{{ acme_symlink_to_local }}"
+    state: link
+  when: acme_symlink_to_local is defined
+
+
+#- name: "Install .acme.sh"
+#  become_user: '{{ acme_user }}'
+#  become: yes
+#  shell: 'acme.sh --install --home {{ acme_data_dir }}'
+#  args:
+#    creates: '{{ acme_data_dir }}/.acme.sh'
