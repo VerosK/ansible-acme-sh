@@ -15,7 +15,7 @@ Please check `defaults/main.yml`
 Dependencies
 ------------
 
-This role has no dependencies.  Weel, the `nc` should be installed on 
+This role has no dependencies.  Well, the `nc` should be installed on 
 target host to start `acme.sh`.
 
 Example Playbook
