@@ -12,7 +12,7 @@ acme_pki_dir_group: 'letsencrypt'
 acme_pki_dir_permissions: '0755'
 
 # Config off .well-known
-acme_well_known_dir: '/var/www/.well-known'
+acme_well_known_dir: '/var/www/.well-known/acme-challenge'
 acme_well_known_dir_owner: 'letsencrypt'
 acme_well_known_dir_group: 'letsencrypt'
 acme_well_known_dir_permissions: '0711'
