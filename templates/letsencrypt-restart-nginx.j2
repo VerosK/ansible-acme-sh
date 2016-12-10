@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+Defaults !requiretty
+Cmnd_Alias NGINX_RELOAD = /bin/systemctl reload nginx
+Cmnd_Alias NGINX_RESTART = /bin/systemctl restart nginx
+%letsencrypt ALL=(root) NOPASSWD: NGINX_RELOAD, NGINX_RESTART

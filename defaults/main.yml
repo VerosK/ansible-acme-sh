@@ -23,3 +23,5 @@ acme_script: '/var/lib/acme/acme.sh'
 acme_script_url: "https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh"
 
 acme_symlink_to_local: '/usr/local/bin/acme.sh'
+
+acme_sudo_reload_nginx: True

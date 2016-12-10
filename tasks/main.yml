@@ -40,6 +40,12 @@
     state: link
   when: acme_symlink_to_local is defined
 
+- name: "Enable sudo nginx reload by letsencrypt"
+  template:
+    src: letsencrypt-restart-nginx.j2
+    dest: /etc/sudoers.d/20-letsencrypt-nginx-restart
+  when: acme_sudo_reload_nginx
+
 
 #- name: "Install .acme.sh"
 #  become_user: '{{ acme_user }}'
