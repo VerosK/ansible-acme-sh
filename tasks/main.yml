@@ -3,12 +3,12 @@
 - name: Create ACME.sh user
   user:
       name: '{{ acme_user }}'
-      home: '{{ acme_data_dir }}'
+      home: '{{ acme_home_dir }}'
       state: present
 
-- name: "Tighten permissions on ACME datadir"
+- name: "Tighten permissions on ACME homedir"
   file:
-    path: '{{ acme_data_dir }}'
+    path: '{{ acme_home_dir }}'
     mode: '700'
 
 - name: "Create ACME pki dir"

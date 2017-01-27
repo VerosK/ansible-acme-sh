@@ -3,7 +3,8 @@
 acme_user: 'letsencrypt'
 
 # Location of datadir
-acme_data_dir: '/var/lib/acme'
+acme_home_dir: '/var/lib/acme'
+acme_data_dir: '/var/lib/acme/.acme.sh'
 
 # Location of directories
 acme_pki_dir: '/etc/pki/acme'
