@@ -1,8 +1,7 @@
 verosk.acme-sh
 ==============
 
-This role sets-up [acme.sh][acme] on the target host. It does no
-installation of the role.
+This role sets-up [acme.sh][acme] on the target host. The role does not generate any certificates (yet).
 
 It's more proof of concept.
 
