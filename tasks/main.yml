@@ -46,6 +46,13 @@
     dest: /etc/sudoers.d/20-letsencrypt-nginx-restart
   when: acme_sudo_reload_nginx
 
+- name: Make sure socat is present (for standalone mode)
+  yum:
+     name: socat
+     state: present
+  when:
+    - ansible_os_family == "RedHat"
+    - acme_standalone_mode_required
 
 #- name: "Install .acme.sh"
 #  become_user: '{{ acme_user }}'

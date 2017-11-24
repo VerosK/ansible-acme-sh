@@ -3,13 +3,13 @@ galaxy_info:
   author: VerosK
   description: This role downloads and sets up acme.sh
   license: BSD
-  min_ansible_version: 1.9
+  min_ansible_version: 2.0
   platforms:
   - name: Fedora
     versions:
-    - 22
     - 23
     - 24
+    - 26
   - name: Ubuntu
     versions:
     - xenial

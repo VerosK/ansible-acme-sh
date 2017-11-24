@@ -26,3 +26,6 @@ acme_script_url: "https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme
 acme_symlink_to_local: '/usr/local/bin/acme.sh'
 
 acme_sudo_reload_nginx: True
+
+# are we goind to use standalone mode (and install socat?)
+acme_standalone_mode_required: True

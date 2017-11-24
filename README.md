@@ -3,7 +3,8 @@ verosk.acme-sh
 
 This role sets-up [acme.sh][acme] on the target host. The role does not generate any certificates (yet).
 
-It's more proof of concept.
+It's started as proof of concept but I've found myself to use it for more
+than two years. 
 
 
 Role Variables
@@ -14,20 +15,20 @@ Please check `defaults/main.yml`
 Dependencies
 ------------
 
-This role has no dependencies.  Well, the `nc` should be installed on 
-target host to start `acme.sh`.
+This role has no dependencies.  But `nc` should be probably installed on 
+the target host to start `acme.sh`. 
 
 Example Playbook
 ----------------
 
     - hosts: webservers
       roles:
-         - role: veros.acme-sh
+         - role: VerosK.acme-sh
 
 License
 -------
 
-BSD || WTFPL
+BSD-2 || WTFPL
 
 Author Information
 ------------------
