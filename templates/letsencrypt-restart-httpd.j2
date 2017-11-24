@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+Defaults !requiretty
+Cmnd_Alias ACME_HTTPD_RELOAD = /bin/systemctl reload httpd
+Cmnd_Alias ACME_HTTPD_RESTART = /bin/systemctl restart httpd
+letsencrypt ALL=(root) NOPASSWD: ACME_HTTPD_RELOAD, ACME_HTTPD_RESTART

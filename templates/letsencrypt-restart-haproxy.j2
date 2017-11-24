@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+Defaults !requiretty
+Cmnd_Alias ACME_HAPROXY_RELOAD = /bin/systemctl reload haproxy
+Cmnd_Alias ACME_HAPROXY_RESTART = /bin/systemctl restart haproxy
+letsencrypt ALL=(root) NOPASSWD: ACME_HAPROXY_RELOAD, ACME_HAPROXY_RESTART
