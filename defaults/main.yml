@@ -30,5 +30,5 @@ acme_sudo_reload_nginx: True
 acme_sudo_reload_httpd: True
 acme_sudo_reload_haproxy: True
 
-# are we goind to use standalone mode (and install socat?)
+# are we going to use standalone mode (and install socat?)
 acme_standalone_mode_required: True

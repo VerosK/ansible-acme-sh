@@ -48,6 +48,15 @@
     - ansible_os_family == "RedHat"
     - acme_standalone_mode_required
 
+- name: Make sure socat is present (for standalone mode)
+  apt:
+     name: socat
+     state: present
+  when:
+    - ansible_os_family == "Debian"
+    - acme_standalone_mode_required
+
+
 - name: "Enable sudo reload nginx by letsencrypt"
   template:
     src: letsencrypt-restart-nginx.j2
