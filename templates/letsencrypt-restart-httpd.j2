@@ -1,5 +1,11 @@
 # {{ ansible_managed }}
 Defaults !requiretty
+{% if ansible_os_family =="RedHat" %}
 Cmnd_Alias ACME_HTTPD_RELOAD = /bin/systemctl reload httpd
 Cmnd_Alias ACME_HTTPD_RESTART = /bin/systemctl restart httpd
+{% elif ansible_os_family == "Debian" %}
+Cmnd_Alias ACME_HTTPD_RELOAD = /bin/systemctl reload apache2
+Cmnd_Alias ACME_HTTPD_RESTART = /bin/systemctl restart apache2
+{% endif %}
+
 letsencrypt ALL=(root) NOPASSWD: ACME_HTTPD_RELOAD, ACME_HTTPD_RESTART
