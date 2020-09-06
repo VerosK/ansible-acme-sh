@@ -60,16 +60,19 @@
   template:
     src: letsencrypt-restart-nginx.j2
     dest: /etc/sudoers.d/20-letsencrypt-nginx-restart
+    mode: 0600
   when: acme_sudo_reload_nginx
 
 - name: "Enable sudo reload haproxy by letsencrypt"
   template:
     src: letsencrypt-restart-haproxy.j2
     dest: /etc/sudoers.d/20-letsencrypt-haproxy-restart
+    mode: 0600
   when: acme_sudo_reload_haproxy
 
 - name: "Enable sudo reload httpd by letsencrypt"
   template:
     src: letsencrypt-restart-httpd.j2
     dest: /etc/sudoers.d/20-letsencrypt-httpd-restart
+    mode: 0600
   when: acme_sudo_reload_httpd
