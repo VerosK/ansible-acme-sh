@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: VerosK
-  role_name: amce-sh
+  role_name: acme-sh
   description: This role sets-up acme-sh
   license: BSD
   min_ansible_version: 2.8
