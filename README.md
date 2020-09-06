@@ -1,10 +1,13 @@
-verosk.acme-sh
+VerosK.acme_sh
 ==============
+
+NOTE: This role has been renamed from `acme-sh` to `acme_sh` to fullfill Ansible Galaxy requirements.  
+Some old playbooks can broke.
 
 This role sets-up [acme.sh][acme] on the target host. The role does not generate any certificates (yet).
 
 It's started as proof of concept but I've found myself to use it for more
-than two years. 
+than four years. 
 
 
 Role Variables
@@ -23,7 +26,7 @@ Example Playbook
 
     - hosts: webservers
       roles:
-         - role: VerosK.acme-sh
+         - role: VerosK.acme_sh
 
 License
 -------
