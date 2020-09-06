@@ -22,7 +22,7 @@ acme_well_known_dir_permissions: '0711'
 acme_script: '/var/lib/acme/acme.sh'
 # Letsencrypt
 acme_script_url:
-  "https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh"
+  "https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh"
 
 acme_symlink_to_local: '/usr/local/bin/acme.sh'
 
