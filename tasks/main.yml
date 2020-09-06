@@ -1,10 +1,9 @@
 ---
-# heavily inspired by https://gist.github.com/lachesis/943769f3fac740d5848352752ac08741
 - name: Create ACME.sh user
   user:
-      name: '{{ acme_user }}'
-      home: '{{ acme_home_dir }}'
-      state: present
+    name: '{{ acme_user }}'
+    home: '{{ acme_home_dir }}'
+    state: present
 
 - name: "Tighten permissions on ACME homedir"
   file:
@@ -42,16 +41,16 @@
 
 - name: Make sure socat is present (for standalone mode)
   yum:
-     name: socat
-     state: present
+    name: socat
+    state: present
   when:
     - ansible_os_family == "RedHat"
     - acme_standalone_mode_required
 
 - name: Make sure socat is present (for standalone mode)
   apt:
-     name: socat
-     state: present
+    name: socat
+    state: present
   when:
     - ansible_os_family == "Debian"
     - acme_standalone_mode_required
@@ -74,10 +73,3 @@
     src: letsencrypt-restart-httpd.j2
     dest: /etc/sudoers.d/20-letsencrypt-httpd-restart
   when: acme_sudo_reload_httpd
-
-#- name: "Install .acme.sh"
-#  become_user: '{{ acme_user }}'
-#  become: yes
-#  shell: 'acme.sh --install --home {{ acme_data_dir }}'
-#  args:
-#    creates: '{{ acme_data_dir }}/.acme.sh'

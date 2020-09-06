@@ -1,21 +1,21 @@
 ---
 galaxy_info:
   author: VerosK
-  description: This role downloads and sets up acme.sh
+  role_name: amce-sh
+  description: This role sets-up acme-sh
   license: BSD
-  min_ansible_version: 2.0
+  min_ansible_version: 2.8
   platforms:
-  - name: Fedora
-    versions:
-    - 23
-    - 24
-    - 26
-  - name: Ubuntu
-    versions:
-    - xenial
-  - name: EL
-    versions:
-    - 6
-    - 7
+    - name: EL
+      versions:
+        - 7
+    - name: Ubuntu
+      versions:
+        - xenial
+        - zesty
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
 
 dependencies: []
