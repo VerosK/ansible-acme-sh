@@ -33,3 +33,7 @@ acme_sudo_reload_haproxy: true
 
 # are we going to use standalone mode (and install socat?)
 acme_standalone_mode_required: true
+
+# registration - set these please
+acme_registration_email: 'myemail@example.com'
+acme_do_registration: 'none'  # or 'zerossl' or 'letsencrypt'

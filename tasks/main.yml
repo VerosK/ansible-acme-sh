@@ -76,3 +76,41 @@
     dest: /etc/sudoers.d/20-letsencrypt-httpd-restart
     mode: 0600
   when: acme_sudo_reload_httpd
+
+- name: Switch to letsencrypt
+  lineinfile:
+    path: '{{ acme_home_dir }}/.acme.sh/account.conf'
+    line: 'DEFAULT_ACME_SERVER="https://acme-v02.api.letsencrypt.org/directory"'
+    regexp: '^DEFAULT_ACME_SERVER='
+    state: present
+    backup: yes
+  become: yes
+  become_user: letsencrypt
+  when: acme_do_registration == 'letsencrypt'
+
+- name: Switch to zerossl
+  lineinfile:
+    path: '{{ acme_home_dir }}/.acme.sh/account.conf'
+    line: 'DEFAULT_ACME_SERVER="https://acme.zerossl.com/v2/DV90"'
+    regexp: '^DEFAULT_ACME_SERVER='
+    backup: yes
+    state: present
+  become: yes
+  become_user: letsencrypt
+  when: acme_do_registration == 'zerossl'
+
+- name: Create registration (letsencrypt)
+  shell:
+      '{{ acme_home_dir }}/acme.sh  --register-account -m {{ acme_registration_email }}'
+  become: yes
+  become_user: letsencrypt
+  when: acme_do_registration == 'letsencrypt'
+
+- name: Create registration (zerossl)
+  shell:
+      '{{ acme_home_dir }}/acme.sh  --register-account --server zerossl  -m {{ acme_registration_email }}'
+  args:
+    creates: '{{ acme_home_dir }}/.acme.sh/ca/acme.zerossl.com/v2/DV90/account.json'
+  become: yes
+  become_user: letsencrypt
+  when: acme_do_registration == 'zerossl'
